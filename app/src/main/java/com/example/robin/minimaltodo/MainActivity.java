@@ -1,19 +1,21 @@
 package com.example.robin.minimaltodo;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -23,16 +25,18 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    static RelativeLayout rl1;
+    static RelativeLayout rl1,rl2;
     RecyclerView rv;
     ArrayList<Task> al = new ArrayList<>();
 
     public static final String b = "420";
+    static int x=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         rl1 = findViewById(R.id.NoToDo);
+        rl2 = findViewById(R.id.parent);
         rv = findViewById(R.id.rv);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
@@ -100,8 +104,10 @@ public class MainActivity extends AppCompatActivity {
         if(al!=null){
             if(al.size()>0) {
                 rl1.setVisibility(View.GONE);
+
                 final TaskAdapter taskAdapter = new TaskAdapter(this, al);
                 rv.setAdapter(taskAdapter);
+
 
             }
             else{
@@ -110,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static void  updatePage(ArrayList<Task> al){
+    public static void  updatePage(final ArrayList<Task> al){
         if(al.size()>0) {
             rl1.setVisibility(View.GONE);
         }
@@ -118,4 +124,21 @@ public class MainActivity extends AppCompatActivity {
             rl1.setVisibility(View.VISIBLE);
         }
     }
+
+    public static void undo(final ArrayList<Task> al, final Task t){
+        Snackbar snackbar = Snackbar.make(rl2, "Deleted Todo", Snackbar.LENGTH_SHORT);
+        snackbar.show();
+        View view = snackbar.getView();
+        TextView txtv = view.findViewById(android.support.design.R.id.snackbar_text);
+        txtv.setGravity(Gravity.CENTER_HORIZONTAL);
+        snackbar.setAction("undo", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                x=1;
+                Log.e("TAG","x: "+x);
+            }
+        });
+    }
+
+
 }

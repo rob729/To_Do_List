@@ -3,6 +3,7 @@ package com.example.robin.minimaltodo;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -73,17 +74,33 @@ public class TaskAdapter  extends RecyclerView.Adapter<TaskAdapter.ViewHolder>  
                 @Override
                 public boolean onLongClick(View view) {
                     int j = getAdapterPosition();
+                    final Task t = taskArrayList.get(j);
                     taskArrayList.remove(j);
                     notifyDataSetChanged();
-
-                    SharedPreferences appSharedPrefs = PreferenceManager
+                    final SharedPreferences appSharedPrefs = PreferenceManager
                             .getDefaultSharedPreferences(ctx);
-                    Gson gson = new Gson();
-                    SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
-                    String data = gson.toJson(taskArrayList);
-                    prefsEditor.putString("MyTask", data);
+                    final Gson gson = new Gson();
                     MainActivity.updatePage(taskArrayList);
-                    prefsEditor.apply();
+                    MainActivity.undo(taskArrayList,t);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(MainActivity.x==1){
+                                taskArrayList.add(t);
+                                notifyDataSetChanged();
+                                MainActivity.updatePage(taskArrayList);
+                            }
+                            // Do something after 5s = 5000ms
+                            Log.e("TAG","Z: "+MainActivity.x);
+                            SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+                            String data = gson.toJson(taskArrayList);
+                            prefsEditor.putString("MyTask", data);
+                            prefsEditor.apply();
+                            MainActivity.x=0;
+
+                        }
+                    }, 2000);
                     return true;
                 }
             });
