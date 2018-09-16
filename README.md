@@ -9,4 +9,4 @@
 ![](https://raw.githubusercontent.com/rob729/images/master/to_do_2.png?token=Ad5e5ZW_eAjgpEBQnMzOmqfBrA3JEwqTks5bp9WjwA%3D%3D)
 ![](https://raw.githubusercontent.com/rob729/images/master/to_do_1.png?token=Ad5e5VYiNJC7NAU4esFDBwP1z9ya2Rhwks5bp9WBwA%3D%3D)
 
-#### Downlaod[ .apk](https://drive.google.com/file/d/12bjGuyw7EgGlr8tW6Of22M2WpgEjKMQM/view?usp=sharing)
+#### Download[ .apk](https://drive.google.com/file/d/12bjGuyw7EgGlr8tW6Of22M2WpgEjKMQM/view?usp=sharing)
