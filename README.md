@@ -1,4 +1,5 @@
 # To Do List
+[![Build Status](https://travis-ci.org/rob729/To_Do_List.svg?branch=master)](https://travis-ci.org/rob729/To_Do_List)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c9e2c6ce10394cc09d40603e296edb15)](https://app.codacy.com/app/rob729/To_Do_List?utm_source=github.com&utm_medium=referral&utm_content=rob729/To_Do_List&utm_campaign=Badge_Grade_Dashboard)
 [![Platform](https://img.shields.io/badge/platform-android-blue.svg)](http://developer.android.com/index.html)
 [![API](https://img.shields.io/badge/API-19%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=19)
