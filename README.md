@@ -5,8 +5,8 @@
 ### A fully Material ToDo app with minimal features, just enough to be useful.
 #### It can be used as reminder for the daily tasks or to just store your daily tasks which are to be performed in a day
 
-![](https://raw.githubusercontent.com/rob729/To_Do_List/master/to_do_1.png)
-![](https://raw.githubusercontent.com/rob729/To_Do_List/master/to_do_2.png)
 ![](https://raw.githubusercontent.com/rob729/To_Do_List/master/to_do_3.png)
+![](https://raw.githubusercontent.com/rob729/To_Do_List/master/to_do_2.png)
+![](https://raw.githubusercontent.com/rob729/To_Do_List/master/to_do_1.png)
 
 #### Download[ .apk](https://drive.google.com/file/d/12bjGuyw7EgGlr8tW6Of22M2WpgEjKMQM/view?usp=sharing)
